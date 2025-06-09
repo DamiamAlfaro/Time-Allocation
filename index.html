@@ -21,16 +21,43 @@
   </nav>
 
 
-  <div class="">
-      <!-- TABULATION -->
-      <div>
-          
-      </div>
-      <!-- TEXT -->
-      <div>
-          
-      </div>
+  <!-- MAIN FUNCTION -->
+  <div class="px-14 py-10 grid grid-cols-1 md:grid-cols-2 gap-10">
+    
+    <!-- TABULATION -->
+    <div class="bg-white p-6 rounded-xl shadow-md">
+      <h2 class="text-xl font-semibold mb-4">Tabulation</h2>
+      <table class="min-w-full table-auto border border-gray-300">
+        <thead>
+          <tr class="bg-violet-200 text-left">
+            <th class="border px-4 py-2">Task</th>
+            <th class="border px-4 py-2">Time Spent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border px-4 py-2">Study</td>
+            <td class="border px-4 py-2">2 hrs</td>
+          </tr>
+          <tr class="bg-gray-50">
+            <td class="border px-4 py-2">Exercise</td>
+            <td class="border px-4 py-2">1 hr</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- TEXT -->
+    <div class="bg-white p-6 rounded-xl shadow-md">
+      <h2 class="text-xl font-semibold mb-4">Notes</h2>
+      <textarea
+        class="w-full h-64 p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500"
+        placeholder="Write your notes here..."
+      ></textarea>
+    </div>
+
   </div>
+
 
 </body>
 </html>
