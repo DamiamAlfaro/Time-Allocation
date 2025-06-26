@@ -1,1 +1,2 @@
-alert("Will this work?");
+let earth = "Mother Earth"
+let currentVisitor = "Current"
