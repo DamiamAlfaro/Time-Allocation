@@ -8,33 +8,43 @@ that functionility. */
 
 // Label the activity
 const form = document.querySelector("form");
-
-function alertingTotal() {
-    const theValue = document.getElementById("activity").value;
-}
+const endButton = document.getElementById("finish_button");
+ 
 
 // Start counting the activity's time
 
-function startingCount() {
+function gettingTime() {
     const now = new Date();
     const hours = now.getHours();
     const minutes = now.getMinutes();
     const seconds = now.getSeconds();
 
-    const currentTime = `${hours}: ${minutes}: ${seconds}`;
-    const timeList = [hours, minutes, seconds];
-    return timeList;
+    return [hours, minutes, seconds];
 
 }
-
 
 // This is temporary but this basically just triggers
 // all of the functions below.
-function activationFunction() {
-    alertingTotal();
-    startingCount();
+function activationFunction(event) {
+    event.preventDefault();
+    timeStarting = gettingTime();
+    alert(`Time started at: ${timeStarting.join(":")}`);
 }
 
-form.addEventListener("submit",activationFunction);
 
+// Stop the acitivity and start doing the math
+let timeStarting = activationFunction();
+
+
+
+function deactivationFunction() {
+    const timeEnd = gettingTime();
+    return timeEnd;
+}
+
+let timeFinishing = deactivationFunction();
+
+endButton.addEventListener("click",deactivationFunction);
+
+alert(`Start: ${timeStarting}, Ending: ${timeFinishing}`);
 
