@@ -9,10 +9,8 @@ that functionility. */
 // Label the activity
 const form = document.querySelector("form");
 const endButton = document.getElementById("finish_button");
- 
 
 // Start counting the activity's time
-
 function gettingTime() {
     const now = new Date();
     const hours = now.getHours();
@@ -31,20 +29,29 @@ function activationFunction(event) {
     alert(`Time started at: ${timeStarting.join(":")}`);
 }
 
-
-// Stop the acitivity and start doing the math
-let timeStarting = activationFunction();
-
-
-
+// Stop the activity and start doing the math
 function deactivationFunction() {
-    const timeEnd = gettingTime();
-    return timeEnd;
+    timeFinishing = gettingTime();
+    alert(`Time finished at: ${timeFinishing.join(":")}`);
+
+    if(timeStarting) {
+        const startSeconds = timeStarting[0]*3600 + timeStarting[1]*60 + timeStarting[2];
+        const endSeconds = timeFinishing[0]*3600 + timeFinishing[1]*60 + timeFinishing[2];
+        const elapsedTime = endSeconds - startSeconds
+        const theActivity = document.getElementById('activity').value; 
+        alert(`Elapsed seconds: ${elapsedTime} for activity: ${theActivity}`);
+    }
 }
 
-let timeFinishing = deactivationFunction();
-
+// Activate the mechanism
+form.addEventListener("submit", activationFunction);
 endButton.addEventListener("click",deactivationFunction);
 
-alert(`Start: ${timeStarting}, Ending: ${timeFinishing}`);
 
+
+/* STORE TIME:
+The next step is to store the time sowhere. First of all,
+we are going to store the time using a tabulation form. The
+second thing will be to store every single iteration of the 
+program separately. After that, we will do the statistics
+of the site. */
