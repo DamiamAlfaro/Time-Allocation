@@ -73,7 +73,7 @@ function storeElapsedTime(time, activity) {
         timestamp: new Date().toISOString(),
     };
 
-    fetch('/api/store-time', {
+    fetch('api/store-time', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
