@@ -1,4 +1,3 @@
-
 /* ANNOTATE THE TIME: We need to do three crucial things:
 1) Label the activity
 2) Start counting the activity's time
@@ -29,7 +28,12 @@ function activationFunction(event) {
     alert(`Time started at: ${timeStarting.join(":")}`);
 }
 
-// Stop the activity and start doing the math
+// Stop the activity and start doing the math. Also,
+// keep the elapsed time stored in a different variable
+// for later use in analysis.
+
+let elapsedTime = 0;
+
 function deactivationFunction() {
     timeFinishing = gettingTime();
     alert(`Time finished at: ${timeFinishing.join(":")}`);
@@ -37,9 +41,15 @@ function deactivationFunction() {
     if(timeStarting) {
         const startSeconds = timeStarting[0]*3600 + timeStarting[1]*60 + timeStarting[2];
         const endSeconds = timeFinishing[0]*3600 + timeFinishing[1]*60 + timeFinishing[2];
-        const elapsedTime = endSeconds - startSeconds
+        elapsedTime = endSeconds - startSeconds
         const theActivity = document.getElementById('activity').value; 
         alert(`Elapsed seconds: ${elapsedTime} for activity: ${theActivity}`);
+
+        // We will use the function below for STORE TIME approach. Let's
+        // keep everything organized. DB PW: timeallocationw1Ns!
+
+        storeElapsedTime(elapsedTime, theActivity);
+
     }
 }
 
@@ -48,10 +58,14 @@ form.addEventListener("submit", activationFunction);
 endButton.addEventListener("click",deactivationFunction);
 
 
-
 /* STORE TIME:
 The next step is to store the time sowhere. First of all,
 we are going to store the time using a tabulation form. The
 second thing will be to store every single iteration of the 
 program separately. After that, we will do the statistics
 of the site. */
+
+function storeElapsedTime(time, activity) {
+    alert(`time: ${time}`);
+    alert(`activity: ${activity}`);
+}
