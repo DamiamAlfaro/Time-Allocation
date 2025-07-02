@@ -92,3 +92,48 @@ function storeElapsedTime(time, activity) {
         });
 
 }
+
+
+/* SHOW ALL ACTIVITIES:
+Let's show all the activities that have been listed 
+within the lifespan of the user. */
+
+const displayActivitiesButton = document.getElementById(
+    "show_activities_button").addEventListener(
+        'click',showActivities);
+
+
+function showActivities() {
+  fetch('/api/get-activities')
+    .then((res) => {
+      if (!res.ok) throw new Error('Network error');
+      return res.json();
+    })
+    .then((data) => {
+      const container = document.getElementById('activitiesContainer');
+      container.innerHTML = ''; // Clear old results
+
+      if (data.length === 0) {
+        container.innerHTML = '<p>No activities found.</p>';
+        return;
+      }
+
+
+      data.forEach((row) => {
+        const div = document.createElement('div');
+        div.className = 'activity-entry';
+        div.innerHTML = `
+          <p><strong>Activity:</strong> ${row.activity}</p>
+          <p><strong>Elapsed Time:</strong> ${row.elapsed_time} seconds</p>
+          <p><strong>Timestamp:</strong> ${new Date(row.timestamp).toLocaleString()}</p>
+          <hr>
+        `;
+        container.appendChild(div);
+      });
+    })
+    .catch((err) => {
+      console.error('Error:', err);
+      alert('Failed to load activities.');
+    });
+
+}
