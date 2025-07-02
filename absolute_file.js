@@ -161,9 +161,33 @@ function hoursStatistics() {
         return;
       }
 
+      // Stratify each of the activities within an object.
+      const activitySummary = {};
+
+      // Add each of the activities and their respective times.
       data.forEach((row) => {
-        console.log(row)
+        
+        if (!activitySummary[row.activity]) {
+            activitySummary[row.activity] = {
+                count: 1,
+                totalDuration: row.elapsed_time
+            };
+        } else {
+            activitySummary[row.activity].count += 1;
+            activitySummary[row.activity].totalDuration += row.elapsedTime
+        }
+
       });
+      
+      // Display the statistics for each of the activities.
+      const statisticsDisplay = document.getElementById('statisticsContainer');
+      statisticsDisplay.innerHTML = "";
+      for (const activity in activitySummary) {
+        const p = document.createElement("p")
+        p.textContent = `${activity}: ${activitySummary[activity].count} times, total duration ${activitySummary[activity].totalDuration} mins`;    
+        statisticsDisplay.appendChild(p) 
+      }
+
     })
     .catch((err) => {
       console.error('Error:', err);
