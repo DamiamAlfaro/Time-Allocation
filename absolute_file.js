@@ -66,6 +66,29 @@ program separately. After that, we will do the statistics
 of the site. */
 
 function storeElapsedTime(time, activity) {
-    alert(`time: ${time}`);
-    alert(`activity: ${activity}`);
+
+    const payload = {
+        time,
+        activity,
+        timestamp: new Date().toISOString(),
+    };
+
+    fetch('/api/store-time', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+    })
+        .then((res) => {
+        if (!res.ok) throw new Error('Network error');
+        return res.json();
+        })
+        .then((data) => {
+        console.log('Stored!', data);
+        alert('Activity stored successfully!');
+        })
+        .catch((err) => {
+        console.error('Error:', err);
+        alert('Failed to store activity.');
+        });
+
 }
