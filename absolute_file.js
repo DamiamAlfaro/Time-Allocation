@@ -104,7 +104,7 @@ const displayActivitiesButton = document.getElementById(
 
 
 function showActivities() {
-  fetch('/api/get-activities')
+  fetch('/api/show-activities')
     .then((res) => {
       if (!res.ok) throw new Error('Network error');
       return res.json();
