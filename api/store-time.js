@@ -4,9 +4,7 @@ import mysql from 'mysql2/promise';
 
 
 export default async function handler(req, res) {
-  console.log('DB_HOST:', process.env.DB_HOST);
-  console.log('DB_USER:', process.env.DB_USER);
-  console.log('DB_NAME:', process.env.DB_NAME);
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
