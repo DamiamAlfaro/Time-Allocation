@@ -174,7 +174,7 @@ function hoursStatistics() {
             };
         } else {
             activitySummary[row.activity].count += 1;
-            activitySummary[row.activity].totalDuration += row.elapsedTime
+            activitySummary[row.activity].totalDuration += row.elapsed_time
         }
 
       });
