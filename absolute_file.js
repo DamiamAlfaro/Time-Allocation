@@ -137,3 +137,37 @@ function showActivities() {
     });
 
 }
+
+
+/* STATISTICS:
+Let's calculate how many hours per activiy the user
+possesses. */
+
+const statisticsButton = document.getElementById(
+    "show_statistics_button").addEventListener("click",hoursStatistics);
+
+function hoursStatistics() {
+  fetch('/api/show-activities')
+    .then((res) => {
+      if (!res.ok) throw new Error('Network error');
+      return res.json();
+    })
+    .then((data) => {
+      const container = document.getElementById('activitiesContainer');
+      container.innerHTML = ''; // Clear old results
+
+      if (data.length === 0) {
+        container.innerHTML = '<p>No activities found.</p>';
+        return;
+      }
+
+      data.forEach((row) => {
+        console.log(row)
+      });
+    })
+    .catch((err) => {
+      console.error('Error:', err);
+      alert('Failed to load activities.');
+    });
+
+}
