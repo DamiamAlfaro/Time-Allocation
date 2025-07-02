@@ -1,5 +1,26 @@
 {
   "dependencies": {
+    "dotenv": "^17.0.1",
+    "express": "^5.1.0",
     "mysql2": "^3.14.1"
-  }
+  },
+  "name": "time-allocation",
+  "version": "1.0.0",
+  "description": "A way to quantify the time you allocate into your ephemeral human life.",
+  "main": "absolute_file.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DamiamAlfaro/Time-Allocation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DamiamAlfaro/Time-Allocation/issues"
+  },
+  "homepage": "https://github.com/DamiamAlfaro/Time-Allocation#readme"
 }
