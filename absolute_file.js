@@ -222,7 +222,8 @@ endButton.addEventListener('click', function() {
   window.removeEventListener("beforeunload", handleBeforeUnload);
 });
 
-
+// This function is to check if the guard is in his
+// position or not.
 function preventUserFromLeaving(event) {
   if (preventLeaving) {
     event.preventDefault();
@@ -230,4 +231,6 @@ function preventUserFromLeaving(event) {
   }
 }
 
+// If the user tries to leave, the code assigns
+// the body guard to him...
 window.addEventListener("beforeunload", preventUserFromLeaving);
