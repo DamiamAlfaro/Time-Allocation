@@ -195,3 +195,39 @@ function hoursStatistics() {
     });
 
 }
+
+/* ERROR HANDLING:
+We want to make sure that an alert is thrown if the user
+attempts to leave the website without closing or finishing
+the activity running. How? Let's see... */
+
+// Attach a checking mechanism to the button that
+// starts each of the outsets for each activity.
+const submissionButton = document.getElementById("submit_button");
+
+// This will be the "body guard that decides whether
+// one should leave or not.
+let preventLeaving = false;
+
+// If the submission button is clicked, we assign
+// the body guard to the user. 
+submissionButton.addEventListener('click', function() {
+  preventLeaving = true;
+});
+
+// If the finish button is clicked, we relocate
+// the body guard somewhere else.
+endButton.addEventListener('click', function() {
+  preventLeaving = false;
+  window.removeEventListener("beforeunload", handleBeforeUnload);
+});
+
+
+function preventUserFromLeaving(event) {
+  if (preventLeaving) {
+    event.preventDefault();
+    event.returnValue = 'You cannot leave mate';
+  }
+}
+
+window.addEventListener("beforeunload", preventUserFromLeaving);
