@@ -184,7 +184,7 @@ function hoursStatistics() {
       statisticsDisplay.innerHTML = "";
       for (const activity in activitySummary) {
         const p = document.createElement("p")
-        p.textContent = `${activity}: ${activitySummary[activity].count} times, total duration ${activitySummary[activity].totalDuration} mins`;    
+        p.textContent = `${activity}: ${activitySummary[activity].count} times, total duration ${activitySummary[activity].totalDuration} seconds`;    
         statisticsDisplay.appendChild(p) 
       }
 
