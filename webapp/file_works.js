@@ -73,7 +73,7 @@ function storeElapsedTime(time, activity) {
         timestamp: new Date().toISOString(),
     };
 
-    fetch('webapp/api/store-time', {
+    fetch('../api/store-time', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -104,7 +104,7 @@ const displayActivitiesButton = document.getElementById(
 
 
 function showActivities() {
-  fetch('webapp/api/show-activities')
+  fetch('../api/show-activities')
     .then((res) => {
       if (!res.ok) throw new Error('Network error');
       return res.json();
@@ -147,7 +147,7 @@ const statisticsButton = document.getElementById(
     "show_statistics_button").addEventListener("click",hoursStatistics);
 
 function hoursStatistics() {
-  fetch('webapp/api/show-activities')
+  fetch('../api/show-activities')
     .then((res) => {
       if (!res.ok) throw new Error('Network error');
       return res.json();
