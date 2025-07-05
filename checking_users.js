@@ -18,7 +18,7 @@ theForm.addEventListener('submit', function(event) {
     event.preventDefault();
 
     const formData = new FormData(this);
-    alert(formData);
+    alert(formData.username);
 
 });
 
