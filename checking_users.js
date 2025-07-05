@@ -19,17 +19,28 @@ theForm.addEventListener('submit', function(event) {
         data.forEach((row) => {
             const userName = row.user_name;
             const userPassword = row.user_password;
-        })
+
+            // Now that you have the credentials, as well as the
+            // content from the table, check if they match.
+
+            if (userName === inputtedUsername && userPassword === inputtedPassword) {
+                matchFound = true;
+            }
+        });
+
+        if (matchFound) {
+            alert("they match mate");
+        } else {
+            alert("they do not match");
+        }
+    })
+    .catch((err) => {
+        console.error('Error in the fetching fuck:', err);
+        alert('something came up FUCK!');
     })
 
-    // Now that you have the credentials, as well as the
-    // content from the table, check if they match.
 
-    if (inputtedUsername === userName && inputtedPassword === userPassword) {
-        alert('yes, they match');
-    } else {
-        alert('no, they do not match');
-    };
+
 
     
 });
