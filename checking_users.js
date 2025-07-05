@@ -25,6 +25,8 @@ theForm.addEventListener('submit', function(event) {
 
             if (userName === inputtedUsername && userPassword === inputtedPassword) {
                 matchFound = true;
+            } else {
+                matchFound = false;
             }
         });
 
