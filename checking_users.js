@@ -1,6 +1,8 @@
-const form = document.querySelector('form');
+const form = document.getElementById('this_and_that');
 
-function alertingCredentials() {
+function alertingCredentials(event) {
+    event.preventDefault();
+    
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
