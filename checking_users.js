@@ -1,7 +1,11 @@
-document.getElementById('user_form').addEventListener("submit", function(e) {
-    e.preventDefault();
+const form = document.querySelector('form');
+const username = document.getElementById('username').value;
+const password = document.getElementById('password').value;
 
-    const formData = FormData(form)
-    console.log(Object.fromEntries(formData));
-
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    alert(username);
+    alert(password);
 });
+
+
