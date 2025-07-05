@@ -15,7 +15,8 @@ theForm.addEventListener('submit', function(event) {
     })
     .then((data) => {
         data.forEach((row) => {
-            alert(row)
+            alert(row.user_name);
+            alert(row.user_password);
         })
     })
     
