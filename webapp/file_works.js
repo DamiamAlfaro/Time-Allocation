@@ -234,3 +234,9 @@ function preventUserFromLeaving(event) {
 // If the user tries to leave, the code assigns
 // the body guard to him...
 window.addEventListener("beforeunload", preventUserFromLeaving);
+
+
+/* USER MANAGEMENT:
+We will check if the username and user's password derived
+from the landing index.html form is found within the MySQL
+via fetch() API, and other approaches */
