@@ -4,9 +4,11 @@ theForm.addEventListener('submit', function(event) {
     event.preventDefault();
 
     const formData = new FormData(this);
+    const inputtedUsername = formData.get('username');
+    const inputtedPassword = formData.get('password');
     
-    // Now that you have the credentials, check if they are found 
-    // within the MySQL table containing them.
+    // Retrieve the content from the MySQL that contains
+    // all of the users' information.
 
     fetch('/api/user-retrieval')
     .then((res) => {
@@ -15,10 +17,20 @@ theForm.addEventListener('submit', function(event) {
     })
     .then((data) => {
         data.forEach((row) => {
-            alert(row.user_name);
-            alert(row.user_password);
+            const userName = row.user_name;
+            const userPassword = row.user_password;
         })
     })
+
+    // Now that you have the credentials, as well as the
+    // content from the table, check if they match.
+
+    if (inputtedUsername === userName && inputtedPassword === userPassword) {
+        alert('yes, they match');
+    } else {
+        alert('no, they do not match');
+    };
+
     
 });
 
