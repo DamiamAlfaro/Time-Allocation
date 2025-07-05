@@ -1,3 +1,7 @@
-const usernameForm = document.getElementById('user_form');
+document.getElementById('user_form').addEventListener("submit", function(e) {
+    e.preventDefault();
 
-alert(usernameForm.value);
+    const formData = FormData(form)
+    alert(formData);
+    
+});
