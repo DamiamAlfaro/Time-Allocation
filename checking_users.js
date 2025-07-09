@@ -84,8 +84,9 @@ signUpForm.addEventListener('submit', function(event) {
             // Now that you have the credentials, as well as the
             // content from the table, check if they match.
             if (userNameRetrieved == newUsername) {
-                let existentUsernameMessage = document.createElement("p");
-                existentUsernameMessage.textContent = "Try another username"
+                document.getElementById('messageDisplay').innerHTML = "<p>Existent username<p>";
+            } else {
+                document.getElementById('messageDisplay').innerHTML = "<p>Nice choice<p>";
             }
 
         });
