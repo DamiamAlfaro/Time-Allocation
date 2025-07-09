@@ -67,9 +67,6 @@ signUpForm.addEventListener('submit', function(event) {
     // Password: more than 5 characters.
     // Email: cannot be added if existent.
 
-    // Let's start with the username. Let's retrieve the usernames
-    // from the SQL table and check if the inputted one equals
-    // one of them.
     fetch('/api/user-retrieval')
     .then((res) => {
         if (!res.ok) throw new Error('Did not work mate');
@@ -89,6 +86,10 @@ signUpForm.addEventListener('submit', function(event) {
                 document.getElementById('messageDisplay').innerHTML = "<p>Make your password longer than 5 characters.<p>";
             } else {
                 document.getElementById('messageDisplay').innerHTML = "<p>Nice choice of credentials<p>";
+
+                // If everything is good to go, we are going to store
+                // the variables into the MySQL table. That will be the
+                // next step.
             }
 
         });
