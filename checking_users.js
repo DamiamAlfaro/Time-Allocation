@@ -1,5 +1,5 @@
 // Transcribe the credentials over here
-const theForm = document.getElementById('this_and_that');
+const theForm = document.getElementById('signInForm');
 theForm.addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -46,5 +46,10 @@ theForm.addEventListener('submit', function(event) {
 
     
 });
+
+
+
+// USER SIGN UP
+alert('this is working');
 
 
