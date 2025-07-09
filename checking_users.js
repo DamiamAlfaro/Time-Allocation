@@ -79,6 +79,7 @@ signUpForm.addEventListener('submit', function(event) {
     .then((data) => {
         data.forEach((row) => {
             const userNameRetrieved = row.user_name;
+            alert(userNameRetrieved);
             const userPasswordRetrieved = row.user_password;
 
             // Now that you have the credentials, as well as the
