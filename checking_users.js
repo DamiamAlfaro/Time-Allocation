@@ -66,6 +66,7 @@ signUpForm.addEventListener('submit', function(event) {
     // Username: cannot be added if existent.
     // Password: more than 5 characters.
     // Email: cannot be added if existent.
+
     // Let's start with the username. Let's retrieve the usernames
     // from the SQL table and check if the inputted one equals
     // one of them.
@@ -77,16 +78,17 @@ signUpForm.addEventListener('submit', function(event) {
     .then((data) => {
         data.forEach((row) => {
             const userNameRetrieved = row.user_name;
-            alert(userNameRetrieved);
-            alert(newUsername);
             const userPasswordRetrieved = row.user_password;
+            const userEmailRetrieved = row.user_email;
 
-            // Now that you have the credentials, as well as the
-            // content from the table, check if they match.
             if (userNameRetrieved == newUsername) {
-                document.getElementById('messageDisplay').innerHTML = "<p>Existent username<p>";
+                document.getElementById('messageDisplay').innerHTML = "<p>Existent username, choose a different one.<p>";
+            } else if (newEmail == userEmailRetrieved) {
+                document.getElementById('messageDisplay').innerHTML = "<p>Existent email, choose a different one.<p>";
+            } else if (newPassword.toString().length <= 5) {
+                document.getElementById('messageDisplay').innerHTML = "<p>Make your password longer than 5 characters.<p>";
             } else {
-                document.getElementById('messageDisplay').innerHTML = "<p>Nice choice<p>";
+                document.getElementById('messageDisplay').innerHTML = "<p>Nice choice of credentials<p>";
             }
 
         });
