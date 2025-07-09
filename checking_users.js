@@ -54,6 +54,8 @@ const signUpForm = document.getElementById('signUpForm');
 signUpForm.addEventListener('submit', function(event) {
     event.preventDefault();
 
+    alert("this is submitted, right?");
+
     // Define the desired variables that we want to store
     // within the existing database.
     const formData = new FormData(this);
