@@ -54,8 +54,6 @@ const signUpForm = document.getElementById('signUpForm');
 signUpForm.addEventListener('submit', function(event) {
     event.preventDefault();
 
-    alert("this is submitted, right?");
-
     // Define the desired variables that we want to store
     // within the existing database.
     const formData = new FormData(this);
@@ -79,6 +77,8 @@ signUpForm.addEventListener('submit', function(event) {
     .then((data) => {
         data.forEach((row) => {
             const userNameRetrieved = row.user_name;
+            alert(userNameRetrieved);
+            alert(newUsername);
             const userPasswordRetrieved = row.user_password;
 
             // Now that you have the credentials, as well as the
