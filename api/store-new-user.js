@@ -2,7 +2,9 @@ import mysql from 'mysql2/promise';
 
 export default async function handler(req, res) {
 
-    console.log(req.method)
+    if (req.method !== 'POST') {
+        return res.status(405).json({ error: 'INCORRECT METHOD!' });
+    }
 
     const { newUsername, newPassword, newEmail } = req.body;
 
