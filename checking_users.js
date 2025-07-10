@@ -104,18 +104,18 @@ signUpForm.addEventListener('submit', function(event) {
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload),
                 })
-                    .then((res) => {
-                    if (!res.ok) throw new Error('Network Error New User');
-                    return res.json();
-                    })
-                    .then((data) => {
-                    console.log('New user stored!', data);
-                    alert('Activity stored successfully!');
-                    })
-                    .catch((err) => {
-                    console.error('Error with new user:', err);
-                    alert('Failed to store activity.');
-                    });
+                .then((res) => {
+                if (!res.ok) throw new Error('Network Error New User');
+                console.log(res.json());
+                })
+                .then((data) => {
+                console.log('New user stored!', data);
+                alert('Activity stored successfully!');
+                })
+                .catch((err) => {
+                console.error('Error with new user:', err);
+                alert('Failed to store activity.');
+                });
                 
 
             }

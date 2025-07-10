@@ -1,9 +1,15 @@
 import mysql from 'mysql2/promise';
 
+alert("you enter the api folder");
 
 export default async function handler(req, res) {
 
     console.log(req.method)
+
+
+    if (req.method !== 'POST') {
+        return res.status(405).json({ error: 'Method not allowed' });
+    }
 
     const { newUsername, newPassword, newEmail } = req.body;
 
