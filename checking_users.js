@@ -73,40 +73,60 @@ signUpForm.addEventListener('submit', function(event) {
         return res.json();
     })
     .then((data) => {
-        const userExists = data.some(row => row.user_name === newUsername);
-        const emailExists = data.some(row => row.user_email === newEmail);
+        data.forEach((row) => {
+            const userNameRetrieved = row.user_name;
+            const userPasswordRetrieved = row.user_password;
+            const userEmailRetrieved = row.user_email;
 
-        if (userExists) {
-            document.getElementById('messageDisplay').innerHTML = "<p>Existent username, choose a different one.</p>";
-        } else if (emailExists) {
-            document.getElementById('messageDisplay').innerHTML = "<p>Existent email, choose a different one.</p>";
-        } else if (newPassword.length <= 5) {
-            document.getElementById('messageDisplay').innerHTML = "<p>Make your password longer than 5 characters.</p>";
-        } else {
-            document.getElementById('messageDisplay').innerHTML =
-                "<p>Nice choice of credentials</p><br><p>Make sure you don't forget them</p>";
+            if (userNameRetrieved == newUsername) {
+                document.getElementById('messageDisplay').innerHTML = "<p>Existent username, choose a different one.</p>";
+            } else if (newEmail == userEmailRetrieved) {
+                document.getElementById('messageDisplay').innerHTML = "<p>Existent email, choose a different one.</p>";
+            } else if (newPassword.toString().length <= 5) {
+                document.getElementById('messageDisplay').innerHTML = "<p>Make your password longer than 5 characters.</p>";
+            } else {
+                document.getElementById('messageDisplay').innerHTML =
+                    "<p>Nice choice of credentials<p>" +
+                    "<br><p>Make sure you don't forget them</p>" +
+                    `<p>username: ${newUsername}<p>` +
+                    `<p>password: ${newPassword}<p>` +
+                    `<p>email: ${newEmail}<p>`;
 
-            const payload = { newUsername, newPassword, newEmail };
+                // If everything is good to go, we are going to store
+                // the variables into the MySQL table. That will be the
+                // next step.
+                
+                const payload = { newUsername, newPassword, newEmail };
 
-            fetch("/api/store-new-user", {
-                method: "POST",
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload),
-            })
-            .then((res) => {
+                fetch("/api/store-new-user", {
+                    method: "POST",
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                })
+                .then((res) => {
+                    console.log(res);
                 if (!res.ok) throw new Error('Network Error New User');
-                return res.json(); // <- You forgot `return` here
-            })
-            .then((data) => {
+                console.log(res.json());
+                })
+                .then((data) => {
                 console.log('New user stored!', data);
                 alert('Activity stored successfully!');
-            })
-            .catch((err) => {
+                })
+                .catch((err) => {
                 console.error('Error with new user:', err);
                 alert('Failed to store activity.');
-            });
-        }
-    });
+                });
+                
+
+            }
+
+        });
+
+    })
+    .catch((err) => {
+        console.error('Error in the user retrieval in sign up fuck:', err);
+        alert('something came up with user retrieval in sign up FUCK!');
+    })
 
 
 
