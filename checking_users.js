@@ -61,7 +61,7 @@ signUpForm.addEventListener('submit', function(event) {
     const newPassword = formData.get('new_password');
     const newEmail = formData.get('new_email');
 
-    goodToStore = false;
+    let goodToStore = false;
 
     // Now that we have the variables, we need to store them.
     // However, let's set a rule for each of the variables:
