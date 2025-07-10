@@ -104,7 +104,7 @@ signUpForm.addEventListener('submit', function(event) {
                     body: JSON.stringify(payload),
                 })
                 .then((res) => {
-                    console.log(res);
+                    console.log(method);
                 if (!res.ok) throw new Error('Network Error New User');
                 console.log(res.json());
                 })
