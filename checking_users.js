@@ -96,7 +96,7 @@ signUpForm.addEventListener('submit', function(event) {
                 const payload = {
                     newUsername,
                     newPassword,
-                    newEmail
+                    newEmail,
                 };
 
                 fetch("/api/store-new-user", {

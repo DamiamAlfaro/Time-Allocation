@@ -1,7 +1,5 @@
 import mysql from 'mysql2/promise';
 
-alert("you enter the api folder");
-
 export default async function handler(req, res) {
 
     console.log(req.method)
