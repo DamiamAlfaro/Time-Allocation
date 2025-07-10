@@ -79,17 +79,45 @@ signUpForm.addEventListener('submit', function(event) {
             const userEmailRetrieved = row.user_email;
 
             if (userNameRetrieved == newUsername) {
-                document.getElementById('messageDisplay').innerHTML = "<p>Existent username, choose a different one.<p>";
+                document.getElementById('messageDisplay').innerHTML = "<p>Existent username, choose a different one.</p>";
             } else if (newEmail == userEmailRetrieved) {
-                document.getElementById('messageDisplay').innerHTML = "<p>Existent email, choose a different one.<p>";
+                document.getElementById('messageDisplay').innerHTML = "<p>Existent email, choose a different one.</p>";
             } else if (newPassword.toString().length <= 5) {
-                document.getElementById('messageDisplay').innerHTML = "<p>Make your password longer than 5 characters.<p>";
+                document.getElementById('messageDisplay').innerHTML = "<p>Make your password longer than 5 characters.</p>";
             } else {
-                document.getElementById('messageDisplay').innerHTML = "<p>Nice choice of credentials<p>";
+                document.getElementById('messageDisplay').innerHTML =
+                    "<p>Nice choice of credentials</p>" +
+                    "<br><p>Make sure you don't forget them</p>";
 
                 // If everything is good to go, we are going to store
                 // the variables into the MySQL table. That will be the
                 // next step.
+                
+                const payload = {
+                    newUsername,
+                    newPassword,
+                    newEmail
+                };
+
+                fetch("/api/store-new-user", {
+                    method: "POST",
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                })
+                    .then((res) => {
+                    if (!res.ok) throw new Error('Network Error New User');
+                    return res.json();
+                    })
+                    .then((data) => {
+                    console.log('New user stored!', data);
+                    alert('Activity stored successfully!');
+                    })
+                    .catch((err) => {
+                    console.error('Error with new user:', err);
+                    alert('Failed to store activity.');
+                    });
+                
+
             }
 
         });
