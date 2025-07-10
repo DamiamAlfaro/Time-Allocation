@@ -99,8 +99,8 @@ signUpForm.addEventListener('submit', function(event) {
                 const payload = { newUsername, newPassword, newEmail };
 
                 fetch("/api/store-new-user", {
-                    method: "POST",
-                    headers: { 'Content-Type': 'application/json' },
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify(payload),
                 })
                 .then((res) => {
