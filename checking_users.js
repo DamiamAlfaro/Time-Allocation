@@ -61,6 +61,8 @@ signUpForm.addEventListener('submit', function(event) {
     const newPassword = formData.get('new_password');
     const newEmail = formData.get('new_email');
 
+    goodToStore = false;
+
     // Now that we have the variables, we need to store them.
     // However, let's set a rule for each of the variables:
     // Username: cannot be added if existent.
@@ -73,57 +75,47 @@ signUpForm.addEventListener('submit', function(event) {
         return res.json();
     })
     .then((data) => {
-        let usernameExists = false;
-        let emailExists = false;
-
         data.forEach((row) => {
-            if (row.user_name === newUsername) usernameExists = true;
-            if (row.user_email === newEmail) emailExists = true;
+            const userNameRetrieved = row.user_name;
+            const userPasswordRetrieved = row.user_password;
+            const userEmailRetrieved = row.user_email;
+
+            if (userNameRetrieved == newUsername) {
+                document.getElementById('messageDisplay').innerHTML = "<p>Existent username, choose a different one.</p>";
+            } else if (newEmail == userEmailRetrieved) {
+                document.getElementById('messageDisplay').innerHTML = "<p>Existent email, choose a different one.</p>";
+            } else if (newPassword.toString().length <= 5) {
+                document.getElementById('messageDisplay').innerHTML = "<p>Make your password longer than 5 characters.</p>";
+            } else {
+                document.getElementById('messageDisplay').innerHTML =
+                    "<p>Nice choice of credentials<p>" +
+                    "<br><p>Make sure you don't forget them</p>" +
+                    `<p>username: ${newUsername}<p>` +
+                    `<p>password: ${newPassword}<p>` +
+                    `<p>email: ${newEmail}<p>`;
+
+                // If everything is good to go, we are going to store
+                // the variables into the MySQL table. That will be the
+                // next step.
+                
+                goodToStore = true;
+                
+
+            }
+
         });
 
-        if (usernameExists) {
-            document.getElementById('messageDisplay').innerHTML = "<p>Existent username, choose a different one.</p>";
-            return;
-        }
+    })
+    .catch((err) => {
+        console.error('Error in the user retrieval in sign up fuck:', err);
+        alert('something came up with user retrieval in sign up FUCK!');
+    })
 
-        if (emailExists) {
-            document.getElementById('messageDisplay').innerHTML = "<p>Existent email, choose a different one.</p>";
-            return;
-        }
-
-        if (newPassword.length <= 5) {
-            document.getElementById('messageDisplay').innerHTML = "<p>Make your password longer than 5 characters.</p>";
-            return;
-        }
-
-        document.getElementById('messageDisplay').innerHTML =
-            "<p>Nice choice of credentials</p>" +
-            "<br><p>Make sure you don't forget them</p>" +
-            `<p>username: ${newUsername}</p>` +
-            `<p>password: ${newPassword}</p>` +
-            `<p>email: ${newEmail}</p>`;
-
-        const payload = { newUsername, newPassword, newEmail };
-
-        fetch("/api/store-new-user", {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload),
-        })
-        .then((res) => {
-            if (!res.ok) throw new Error('Network Error New User');
-            return res.json();
-        })
-        .then((data) => {
-            console.log('New user stored!', data);
-            alert('Activity stored successfully!');
-        })
-        .catch((err) => {
-            console.error('Error with new user:', err);
-            alert('Failed to store activity.');
-        });
-    });
-
+    if (goodToStore) {
+        alert('ok, it worked');
+    } else {
+        alert('nope, did not work');
+    }
 
 
 
