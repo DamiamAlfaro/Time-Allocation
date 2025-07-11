@@ -74,6 +74,9 @@ signUpForm.addEventListener('submit', function(event) {
         if (!res.ok) throw new Error('Did not work mate');
         return res.json();
     })
+
+    // Keep in mind that the issue is with the for loop
+
     .then((data) => {
         data.forEach((row) => {
             const userNameRetrieved = row.user_name;
