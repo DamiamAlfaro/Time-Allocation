@@ -75,8 +75,6 @@ signUpForm.addEventListener('submit', function(event) {
         return res.json();
     })
 
-    // Keep in mind that the issue is with the for loop
-
     .then((data) => {
         data.forEach((row) => {
             const userNameRetrieved = row.user_name;
