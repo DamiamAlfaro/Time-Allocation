@@ -7,9 +7,11 @@ theForm.addEventListener('submit', function(event) {
     const inputtedUsername = formData.get('username');
     const inputtedPassword = formData.get('password');
     
+    let allUsers = [];
+    let allPasswords = [];
+
     // Retrieve the content from the MySQL that contains
     // all of the users' information.
-
     fetch('/api/user-retrieval')
     .then((res) => {
         if (!res.ok) throw new Error('Did not work mate');
@@ -19,22 +21,27 @@ theForm.addEventListener('submit', function(event) {
         data.forEach((row) => {
             const userName = row.user_name;
             const userPassword = row.user_password;
-
-            // Now that you have the credentials, as well as the
-            // content from the table, check if they match.
-
-            if (userName === inputtedUsername && userPassword === inputtedPassword) {
-                matchFound = true;
-            } else {
-                matchFound = false;
-            }
+            allUsers.push(userName);
+            allPasswords.push(userPassword);
         });
 
-        if (matchFound) {
-            alert("they match mate");
+        const userIndex = allUsers.findIndex(user => user === inputtedUsername);
+
+        if (userIndex !== -1) {
+            if (allPasswords[userIndex] == inputtedPassword) {
+                document.getElementById('usernameLoginFound').innerHTML = "Good to go mate.";
+            } else {
+                document.getElementById('usernameLoginFound').innerHTML = "Are you sure that's your password?...";
+            }
+
         } else {
-            alert("they do not match");
+            document.getElementById('usernameLoginFound').innerHTML = "Username not found, sign up for new account.";
         }
+        
+
+           
+
+
     })
     .catch((err) => {
         console.error('Error in the fetching fuck:', err);
