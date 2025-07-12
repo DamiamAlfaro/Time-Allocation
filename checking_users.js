@@ -75,51 +75,29 @@ signUpForm.addEventListener('submit', function(event) {
         return res.json();
     })
 
-    console.log(data);
-    return;
 
-    // .then((data) => {
-    //     data.forEach((row) => {
-    //         const userNameRetrieved = row.user_name;
-    //         const userPasswordRetrieved = row.user_password;
-    //         const userEmailRetrieved = row.user_email;
+    .then((data) => {
+        data.forEach((row) => {
+            const userNameRetrieved = row.user_name;
+            const userPasswordRetrieved = row.user_password;
+            const userEmailRetrieved = row.user_email;
 
-    //         if (userNameRetrieved == newUsername) {
-    //             document.getElementById('messageDisplay').innerHTML = "<p>Existent username, choose a different one.</p>";
-    //         } else if (newEmail == userEmailRetrieved) {
-    //             document.getElementById('messageDisplay').innerHTML = "<p>Existent email, choose a different one.</p>";
-    //         } else if (newPassword.toString().length <= 5) {
-    //             document.getElementById('messageDisplay').innerHTML = "<p>Make your password longer than 5 characters.</p>";
-    //         } else {
-    //             document.getElementById('messageDisplay').innerHTML =
-    //                 "<p>Nice choice of credentials<p>" +
-    //                 "<br><p>Make sure you don't forget them</p>" +
-    //                 `<p>username: ${newUsername}<p>` +
-    //                 `<p>password: ${newPassword}<p>` +
-    //                 `<p>email: ${newEmail}<p>`;
+            const credentialsOfUser = {
+                userNameRetrieved,
+                userPasswordRetrieved,
+                userEmailRetrieved
+            };
 
-    //             // If everything is good to go, we are going to store
-    //             // the variables into the MySQL table. That will be the
-    //             // next step.
-                
-    //             goodToStore = true;
-                
+            console.log(credentialsOfUser);
 
-    //         }
+        });
 
-    //     });
+    })
+    .catch((err) => {
+        console.error('Error in the user retrieval in sign up fuck:', err);
+        alert('something came up with user retrieval in sign up FUCK!');
+    })
 
-    // })
-    // .catch((err) => {
-    //     console.error('Error in the user retrieval in sign up fuck:', err);
-    //     alert('something came up with user retrieval in sign up FUCK!');
-    // })
-
-    // if (goodToStore) {
-    //     alert('ok, it worked');
-    // } else {
-    //     alert('nope, did not work');
-    // }
 
 
 
