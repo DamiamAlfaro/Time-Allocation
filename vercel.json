@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/webapp",
+      "destination": "/webapp/",
+      "permanent": true
+    }
+  ]
+}
