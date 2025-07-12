@@ -30,6 +30,7 @@ theForm.addEventListener('submit', function(event) {
         if (userIndex !== -1) {
             if (allPasswords[userIndex] == inputtedPassword) {
                 document.getElementById('usernameLoginFound').innerHTML = "Good to go mate.";
+                window.location.href = '/webapp/'
             } else {
                 document.getElementById('usernameLoginFound').innerHTML = "Are you sure that's your password?...";
             }
