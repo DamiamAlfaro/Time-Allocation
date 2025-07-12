@@ -95,13 +95,13 @@ signUpForm.addEventListener('submit', function(event) {
     });
 
     if (existentUsernames.includes(newUsername)) {
-        document.getElementById('messageDisplay').innerHTML('Username already exists, try another one...');
+        document.getElementById('messageDisplay').innerHTML = 'Username already exists, try another one...';
     } else if (existentEmails.includes(newEmail)) {
-        document.getElementById('messageDisplay').innerHTML('Email already exists, try a different one...');
+        document.getElementById('messageDisplay').innerHTML = 'Email already exists, try a different one...';
     } else if (newPassword.length <= 5) {
-        document.getElementById('messageDisplay').innerHTML('Password must be more than 5 characters mate...');
+        document.getElementById('messageDisplay').innerHTML = 'Password must be more than 5 characters mate...';
     } else {
-        document.getElementById('messageDisplay').innerHTML('Finally mate!');
+        document.getElementById('messageDisplay').innerHTML = 'Finally mate!';
     };
 
 
