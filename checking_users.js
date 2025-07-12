@@ -75,48 +75,51 @@ signUpForm.addEventListener('submit', function(event) {
         return res.json();
     })
 
-    .then((data) => {
-        data.forEach((row) => {
-            const userNameRetrieved = row.user_name;
-            const userPasswordRetrieved = row.user_password;
-            const userEmailRetrieved = row.user_email;
+    console.log(res);
+    return;
 
-            if (userNameRetrieved == newUsername) {
-                document.getElementById('messageDisplay').innerHTML = "<p>Existent username, choose a different one.</p>";
-            } else if (newEmail == userEmailRetrieved) {
-                document.getElementById('messageDisplay').innerHTML = "<p>Existent email, choose a different one.</p>";
-            } else if (newPassword.toString().length <= 5) {
-                document.getElementById('messageDisplay').innerHTML = "<p>Make your password longer than 5 characters.</p>";
-            } else {
-                document.getElementById('messageDisplay').innerHTML =
-                    "<p>Nice choice of credentials<p>" +
-                    "<br><p>Make sure you don't forget them</p>" +
-                    `<p>username: ${newUsername}<p>` +
-                    `<p>password: ${newPassword}<p>` +
-                    `<p>email: ${newEmail}<p>`;
+    // .then((data) => {
+    //     data.forEach((row) => {
+    //         const userNameRetrieved = row.user_name;
+    //         const userPasswordRetrieved = row.user_password;
+    //         const userEmailRetrieved = row.user_email;
 
-                // If everything is good to go, we are going to store
-                // the variables into the MySQL table. That will be the
-                // next step.
+    //         if (userNameRetrieved == newUsername) {
+    //             document.getElementById('messageDisplay').innerHTML = "<p>Existent username, choose a different one.</p>";
+    //         } else if (newEmail == userEmailRetrieved) {
+    //             document.getElementById('messageDisplay').innerHTML = "<p>Existent email, choose a different one.</p>";
+    //         } else if (newPassword.toString().length <= 5) {
+    //             document.getElementById('messageDisplay').innerHTML = "<p>Make your password longer than 5 characters.</p>";
+    //         } else {
+    //             document.getElementById('messageDisplay').innerHTML =
+    //                 "<p>Nice choice of credentials<p>" +
+    //                 "<br><p>Make sure you don't forget them</p>" +
+    //                 `<p>username: ${newUsername}<p>` +
+    //                 `<p>password: ${newPassword}<p>` +
+    //                 `<p>email: ${newEmail}<p>`;
+
+    //             // If everything is good to go, we are going to store
+    //             // the variables into the MySQL table. That will be the
+    //             // next step.
                 
-                goodToStore = true;
+    //             goodToStore = true;
                 
 
-            }
+    //         }
 
-        });
+    //     });
 
-    })
-    .catch((err) => {
-        console.error('Error in the user retrieval in sign up fuck:', err);
-        alert('something came up with user retrieval in sign up FUCK!');
-    })
+    // })
+    // .catch((err) => {
+    //     console.error('Error in the user retrieval in sign up fuck:', err);
+    //     alert('something came up with user retrieval in sign up FUCK!');
+    // })
 
-    if (goodToStore) {
-        alert('ok, it worked');
-    } else {
-        alert('nope, did not work');
-    }
+    // if (goodToStore) {
+    //     alert('ok, it worked');
+    // } else {
+    //     alert('nope, did not work');
+    // }
 
 
 
