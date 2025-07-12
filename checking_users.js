@@ -69,26 +69,22 @@ signUpForm.addEventListener('submit', function(event) {
     // Password: more than 5 characters.
     // Email: cannot be added if existent.
 
+    let existentUsernames = [];
+    let existentEmails = [];
+
     fetch('/api/user-retrieval')
     .then((res) => {
         if (!res.ok) throw new Error('Did not work mate');
         return res.json();
     })
 
-
     .then((data) => {
         data.forEach((row) => {
             const userNameRetrieved = row.user_name;
-            const userPasswordRetrieved = row.user_password;
             const userEmailRetrieved = row.user_email;
 
-            const credentialsOfUser = {
-                userNameRetrieved,
-                userPasswordRetrieved,
-                userEmailRetrieved
-            };
-
-            console.log(credentialsOfUser);
+            existentUsernames.push(userNameRetrieved);
+            existentEmails.push(userEmailRetrieved);
 
         });
 
@@ -98,6 +94,8 @@ signUpForm.addEventListener('submit', function(event) {
         alert('something came up with user retrieval in sign up FUCK!');
     })
 
+    console.log(existentUsernames);
+    console.log(existentEmails);
 
 
 
