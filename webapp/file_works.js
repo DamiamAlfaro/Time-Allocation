@@ -1,5 +1,13 @@
 // PREVENT NON USERS ENTRY: Check if the user has logged in.
+document.addEventListener('DOMContentLoaded', function() {
+    const isAuthenticated = localStorage.getItem('isAuthenticated');
 
+    if (isAuthenticated !== 'true') {
+        // Redirect to the login page if not authenticated
+        window.location.href = '../';
+        alert('login first mate'); 
+    }
+});
 
 
 
