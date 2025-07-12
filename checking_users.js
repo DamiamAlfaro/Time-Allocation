@@ -31,7 +31,7 @@ theForm.addEventListener('submit', function(event) {
             if (allPasswords[userIndex] == inputtedPassword) {
                 document.getElementById('usernameLoginFound').innerHTML = "Good to go mate.";
                 document.cookie = "auth=true; path=/; SameSite=Lax";
-                window.location.href = '/webapp'
+                window.location.href = '/webapp/'
             } else {
                 document.getElementById('usernameLoginFound').innerHTML = "Are you sure that's your password?...";
             }

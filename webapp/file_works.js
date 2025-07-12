@@ -1,9 +1,4 @@
 // PREVENT NON USERS ENTRY: Check if the user has logged in.
-document.addEventListener('DOMContentLoaded', function() {
-    if (!document.cookie.includes('auth=true')) {
-        alert('Warning: You are not authenticated.');
-    }
-});
 
 
 
