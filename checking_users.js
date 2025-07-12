@@ -61,7 +61,7 @@ signUpForm.addEventListener('submit', function(event) {
     const newPassword = formData.get('new_password');
     const newEmail = formData.get('new_email');
 
-    let goodToGoOrNot = [];
+    let goodToGoOrNot = false;
 
     // Now that we have the variables, we need to store them.
     // However, let's set a rule for each of the variables:
@@ -96,7 +96,7 @@ signUpForm.addEventListener('submit', function(event) {
             document.getElementById('messageDisplay').innerHTML = 'Password must be more than 5 characters mate...';
         } else {
             document.getElementById('messageDisplay').innerHTML = 'Finally mate!';
-            goodToGoOrNot.push("Good to go!");
+            goodToGoOrNot = true;
         };
 
     })
