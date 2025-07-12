@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (isAuthenticated !== 'true') {
         // Redirect to the login page if not authenticated
-        window.location.href = '../'; 
+        window.location.href = '../';
+        alert('login first mate'); 
     }
 });
 
