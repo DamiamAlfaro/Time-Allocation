@@ -1,3 +1,15 @@
+// PREVENT NON USERS ENTRY: Check if the user has logged in.
+document.addEventListener('DOMContentLoaded', function() {
+    const isAuthenticated = localStorage.getItem('isAuthenticated');
+
+    if (isAuthenticated !== 'true') {
+        // Redirect to the login page if not authenticated
+        window.location.href = '../'; 
+    }
+});
+
+
+
 /* ANNOTATE THE TIME: We need to do three crucial things:
 1) Label the activity
 2) Start counting the activity's time
