@@ -61,6 +61,8 @@ signUpForm.addEventListener('submit', function(event) {
     const newPassword = formData.get('new_password');
     const newEmail = formData.get('new_email');
 
+    let goodToGoOrNot = [];
+
     // Now that we have the variables, we need to store them.
     // However, let's set a rule for each of the variables:
     // Username: cannot be added if existent.
@@ -94,6 +96,7 @@ signUpForm.addEventListener('submit', function(event) {
             document.getElementById('messageDisplay').innerHTML = 'Password must be more than 5 characters mate...';
         } else {
             document.getElementById('messageDisplay').innerHTML = 'Finally mate!';
+            goodToGoOrNot.push("Good to go!");
         };
 
     })
@@ -101,6 +104,10 @@ signUpForm.addEventListener('submit', function(event) {
         console.error('Error in the user retrieval in sign up fuck:', err);
         alert('something came up with user retrieval in sign up FUCK!');
     });
+
+    if (goodToGoOrNot) {
+        document.getElementById('secondDisplay').innerHTML = "Good to go mate!";
+    }
 
 
 
