@@ -100,6 +100,32 @@ signUpForm.addEventListener('submit', function(event) {
         };
 
         if (goodToGoOrNot) {
+
+            // Let's access the MySQL table
+
+            let payload = {
+                newUsername,
+                newPassword,
+                newEmail
+            }
+
+            fetch('/api/store-new-user', {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then((res) => {
+            if (!res.ok) throw new Error('Something came up.')
+            })
+            .then((data) => {
+            console.log('It fucking worked!', data);
+            alert('It fucking worked mon ami!');
+            })
+            .catch((err) => {
+            console.error('Error:', err);
+            alert('what the fuck man!');
+            });
+
             document.getElementById('secondDisplay').innerHTML = "Good to go mate!";
         }
 
