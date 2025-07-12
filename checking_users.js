@@ -92,11 +92,17 @@ signUpForm.addEventListener('submit', function(event) {
     .catch((err) => {
         console.error('Error in the user retrieval in sign up fuck:', err);
         alert('something came up with user retrieval in sign up FUCK!');
-    })
+    });
 
-    console.log(existentUsernames);
-    console.log(existentEmails);
-
+    if (existentUsernames.includes(newUsername)) {
+        document.getElementById('messageDisplay').innerHTML('Username already exists, try another one...');
+    } else if (existentEmails.includes(newEmail)) {
+        document.getElementById('messageDisplay').innerHTML('Email already exists, try a different one...');
+    } else if (newPassword.length <= 5) {
+        document.getElementById('messageDisplay').innerHTML('Password must be more than 5 characters mate...');
+    } else {
+        document.getElementById('messageDisplay').innerHTML('Finally mate!');
+    };
 
 
 
