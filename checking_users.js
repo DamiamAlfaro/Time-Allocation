@@ -75,7 +75,7 @@ signUpForm.addEventListener('submit', function(event) {
         return res.json();
     })
 
-    console.log(res);
+    console.log(data);
     return;
 
     // .then((data) => {
