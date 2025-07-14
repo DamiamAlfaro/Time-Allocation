@@ -1,3 +1,17 @@
+// The revealing buttons that reveal the login and sign in form
+document.getElementById("loginButton").addEventListener('click', function() {
+    document.getElementById("signInForm").classList.toggle('show-sign-in-form');
+
+});
+
+document.getElementById("signInButton").addEventListener('click', function() {
+    document.getElementById("signUpForm").classList.toggle('show-sign-up-form');
+
+});
+
+
+
+
 // Transcribe the credentials over here
 const theForm = document.getElementById('signInForm');
 theForm.addEventListener('submit', function(event) {

@@ -1,38 +1,49 @@
 <!DOCTYPE HTML>
 <html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
 
 <body>
 
-  <div>
-    <h1>Time Allocation - STRATIFYING YOUR TIME</h1>
+  <!-- Simple, straightforward, and minimalistic -->
+
+  <div class="mainContainer">
+    <div id="webappTitle">
+      <h1>STRATIFY YOUR TIME</h1>
+    </div>
+
+    <button id="loginButton">Login</button>
+
+    <!-- USER SIGN IN -->
+    <form id="signInForm">
+      <label for="username">Username:</label><br>
+      <input type="text" placeholder="You remember it, right?..." name="username" id="username"><br>
+      <label for="password">Password:</label><br>
+      <input type="text" placeholder="I hope you do..." name="password" id="password">
+      <button type="submit">Login</button>
+    </form>
+
+    <p id="usernameLoginFound"></p>
+
+    <button id="signInButton">Sign Up</button>
+
+    <!-- USER SIGN UP -->
+    <form id="signUpForm">
+      <label for="username">New Username:</label><br>
+      <input type="text" placeholder="Anything works." name="new_username" id="new_username"><br>
+      <label for="password">New Password:</label><br>
+      <input type="text" placeholder="Just don't forget it." name="new_password" id="new_password"><br>
+      <label for="password">Email Address:</label><br>
+      <input type="text" placeholder="Your email." name="new_email" id="new_email">
+      <button type="submit">Submit</button>
+      <p id="messageDisplay"></p>
+      <p id="secondDisplay"></p>
+    </form>
   </div>
 
-  <!-- USER SIGN IN -->
-  <form id="signInForm">
-    <label for="username">Username:</label><br>
-    <input type="text" placeholder="You remember it, right?..." name="username" id="username"><br>
-    <label for="password">Password:</label><br>
-    <input type="text" placeholder="I hope you do..." name="password" id="password">
-    <button type="submit">Login</button>
-  </form>
 
-  <p id="usernameLoginFound"></p>
-
-  <!-- USER SIGN UP -->
-  <form id="signUpForm">
-    <label for="username">New Username:</label><br>
-    <input type="text" placeholder="Anything works." name="new_username" id="new_username"><br>
-    <label for="password">New Password:</label><br>
-    <input type="text" placeholder="Just don't forget it." name="new_password" id="new_password"><br>
-    <label for="password">Email Address:</label><br>
-    <input type="text" placeholder="Your email." name="new_email" id="new_email">
-    <button type="submit">Submit</button>
-    <p id="messageDisplay"></p>
-    <p id="secondDisplay"></p>
-  </form>
-
-
-  <script src="checking_users.js"></script>
+  <script src="checking_users1.js"></script>
 
 </body>
 

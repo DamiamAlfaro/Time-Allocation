@@ -1,0 +1,30 @@
+body {
+    background-color: aliceblue;
+    cursor: default;
+}
+
+.mainContainer {
+  width: 80%; /* Or any desired width */
+  margin: 0 auto; /* Centers the container horizontally */
+  text-align: center; /* Centers text content within the container */
+}
+
+#webappTitle {
+    margin-top: 10%;
+}
+
+#signInForm {
+    display: none;
+}
+
+#signInForm.show-sign-in-form {
+    display: block;
+}
+
+#signUpForm {
+    display: none;
+}
+
+#signUpForm.show-sign-up-form {
+    display: block;
+}
