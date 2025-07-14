@@ -44,3 +44,13 @@ top: 50px;
 left: 100px;
 z-index: -1; /* Places the shape behind other content */
 }
+
+.square-background {
+  width: 200px;
+  height: 200px;
+  background-color: pink;
+  position: absolute; /* Allows positioning it on the background */
+  top: 650px;
+  left: 600px;
+  z-index: -1; /* Places the shape behind other content */
+}
