@@ -1,10 +1,15 @@
 body {
     background-color: aliceblue;
     cursor: default;
+    font-family: system-ui, sans-serif;
+}
+
+#webappTitle {
+    font-weight: 100;
 }
 
 .mainContainer {
-  width: 80%; /* Or any desired width */
+  width: 100%; /* Or any desired width */
   margin: 0 auto; /* Centers the container horizontally */
   text-align: center; /* Centers text content within the container */
 }
@@ -27,4 +32,15 @@ body {
 
 #signUpForm.show-sign-up-form {
     display: block;
+}
+
+.circle-background {
+width: 200px;
+height: 200px;
+background-color: pink;
+border-radius: 50%; /* Makes it a circle */
+position: absolute; /* Allows positioning it on the background */
+top: 50px;
+left: 100px;
+z-index: -1; /* Places the shape behind other content */
 }
