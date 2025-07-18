@@ -8,15 +8,15 @@ body {
     position: fixed; 
     top: 0;
     right: 4vw;
-    width: auto; /* Or a specific width like 25% or 100% */
-    background-color: #D1E9F6; /* Example background color */
-    padding: 1%; /* Example padding */
+    width: auto; 
+    background-color: #D1E9F6; 
+    padding: 1%; 
 }
 
 .navbar li {
     letter-spacing: 0.04em;
     font-size: 1.2em;
-    display: inline-block; /* Display list items horizontally */
+    display: inline-block;
     list-style: none;
 }
 
