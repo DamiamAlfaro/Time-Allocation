@@ -1,8 +1,34 @@
 body {
-    background-color: aliceblue;
+    background-color: #D1E9F6;
     cursor: default;
     font-family: system-ui, sans-serif;
 }
+
+.navbar {
+    position: fixed; /* */
+    top: 0;
+    right: 4vw;
+    width: auto; /* Or a specific width like 25% or 100% */
+    background-color: #D1E9F6; /* Example background color */
+    padding: 12px; /* Example padding */
+    font-weight: 350;
+}
+
+.navbar li {
+    display: inline-block; /* Display list items horizontally */
+}
+
+.navbar a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333; /* Example text color */
+}
+
+.navbar a:hover {
+    color: #FFB8E0;
+}
+
 
 #webappTitle {
     font-weight: 100;
@@ -37,7 +63,7 @@ body {
 .circle-background {
 width: 200px;
 height: 200px;
-background-color: pink;
+background-color: #FFB8E0;
 border-radius: 50%; /* Makes it a circle */
 position: absolute; /* Allows positioning it on the background */
 top: 50px;
@@ -48,9 +74,10 @@ z-index: -1; /* Places the shape behind other content */
 .square-background {
   width: 200px;
   height: 200px;
-  background-color: pink;
+  background-color: #FFB8E0;
   position: absolute; /* Allows positioning it on the background */
   top: 650px;
   left: 600px;
   z-index: -1; /* Places the shape behind other content */
 }
+

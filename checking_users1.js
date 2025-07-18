@@ -9,9 +9,6 @@ document.getElementById("signInButton").addEventListener('click', function() {
 
 });
 
-
-
-
 // Transcribe the credentials over here
 const theForm = document.getElementById('signInForm');
 theForm.addEventListener('submit', function(event) {
@@ -159,10 +156,4 @@ signUpForm.addEventListener('submit', function(event) {
     });
 
 
-
-
-
-
-
 })
-
