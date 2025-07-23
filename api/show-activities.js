@@ -15,7 +15,7 @@ export default async function handler(req, res) {
     });
 
     const [rows] = await connection.execute(
-      'SELECT activity, elapsed_time, timestamp FROM timeallocation ORDER BY timestamp DESC'
+      'SELECT username, activity, elapsed_time, timestamp FROM timeallocation ORDER BY timestamp DESC'
     );
 
     await connection.end();

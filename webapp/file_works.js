@@ -143,6 +143,7 @@ function showActivities() {
         const div = document.createElement('div');
         div.className = 'activity-entry';
         div.innerHTML = `
+          <p><strong>Username:</strong> ${row.username}</p>
           <p><strong>Activity:</strong> ${row.activity}</p>
           <p><strong>Elapsed Time:</strong> ${row.elapsed_time} seconds</p>
           <p><strong>Timestamp:</strong> ${new Date(row.timestamp).toLocaleString()}</p>
