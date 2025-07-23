@@ -6,8 +6,13 @@ document.addEventListener('DOMContentLoaded', function() {
         // Redirect to the login page if not authenticated
         window.location.href = '../';
         alert('login first mate'); 
+    } else {
+      const usernameJustLoggedIn = localStorage.getItem('usernameThatLoggedIn');
+      document.getElementById('welcomeUserMessage').innerHTML = `Welcome ${usernameJustLoggedIn}`;
     }
 });
+
+
 
 
 

@@ -42,6 +42,7 @@ theForm.addEventListener('submit', function(event) {
             if (allPasswords[userIndex] == inputtedPassword) {
                 document.getElementById('usernameLoginFound').innerHTML = "Good to go mate.";
                 localStorage.setItem('isAuthenticated', 'true');
+                localStorage.setItem('usernameThatLoggedIn', inputtedUsername);
                 window.location.href = '/webapp/'
             } else {
                 document.getElementById('usernameLoginFound').innerHTML = "Are you sure that's your password?...";
