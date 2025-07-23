@@ -141,7 +141,7 @@ function showActivities() {
       const userLoggedIn = localStorage.getItem('usernameThatLoggedIn');
       const userDataRetrieved = data.filter(row => row.username === userLoggedIn);
       
-      const newDivForActivities = document.createElement('div');
+      const newDivForActivities = document.createElement('p');
       newDivForActivities.textContent = `<strong>${userDataRetrieved}</strong> Activities:<br>`;
 
 
