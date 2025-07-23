@@ -143,7 +143,7 @@ function showActivities() {
       
       const usernameActivitiesDisplay = document.getElementById('usernameActivitiesDisplay');
       const newDivForActivities = document.createElement('div');
-      newDivForActivities.innerHTML = `<strong>${userDataRetrieved}</strong> Activities:<br>`;
+      newDivForActivities.innerHTML = `<strong>${userLoggedIn}</strong> Activities:<br>`;
       usernameActivitiesDisplay.appendChild(newDivForActivities);
 
 
