@@ -131,7 +131,9 @@ function showActivities() {
     })
     .then((data) => {
       const container = document.getElementById('activitiesContainer');
+      const usernameActivitiesDisplay = document.getElementById('usernameActivitiesDisplay');
       container.innerHTML = ''; // Clear old results
+      usernameActivitiesDisplay.innerHTML = '';
 
       if (data.length === 0) {
         container.innerHTML = '<p>No activities found.</p>';
@@ -141,7 +143,6 @@ function showActivities() {
       const userLoggedIn = localStorage.getItem('usernameThatLoggedIn');
       const userDataRetrieved = data.filter(row => row.username === userLoggedIn);
       
-      const usernameActivitiesDisplay = document.getElementById('usernameActivitiesDisplay');
       const newDivForActivities = document.createElement('div');
       newDivForActivities.innerHTML = `<strong>${userLoggedIn}</strong> Activities:<br>`;
       usernameActivitiesDisplay.appendChild(newDivForActivities);
@@ -193,7 +194,9 @@ function hoursStatistics() {
     })
     .then((data) => {
       const container = document.getElementById('activitiesContainer');
+      const usernameStatisticsDisplay = document.getElementById('usernameStatisticsDisplay');
       container.innerHTML = ''; // Clear old results
+      usernameStatisticsDisplay.innerHTML = '';
 
       if (data.length === 0) {
         container.innerHTML = '<p>No activities found.</p>';
@@ -207,7 +210,6 @@ function hoursStatistics() {
       const userLoggedIn = localStorage.getItem('usernameThatLoggedIn');
       const userDataRetrieved = data.filter(row => row.username === userLoggedIn);
 
-      const usernameStatisticsDisplay = document.getElementById('usernameStatisticsDisplay');
       const newDivForStatistics = document.createElement('div');
       newDivForStatistics.innerHTML = `<strong>${userLoggedIn}</strong> Statistics:<br>`;
       usernameStatisticsDisplay.appendChild(newDivForStatistics);
