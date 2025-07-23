@@ -209,7 +209,7 @@ function hoursStatistics() {
 
       const usernameStatisticsDisplay = document.getElementById('usernameStatisticsDisplay');
       const newDivForStatistics = document.createElement('div');
-      newDivForStatistics.innerHTML = `<strong>${userLoggedIn}</strong> Activities:<br>`;
+      newDivForStatistics.innerHTML = `<strong>${userLoggedIn}</strong> Statistics:<br>`;
       usernameStatisticsDisplay.appendChild(newDivForStatistics);
 
       userDataRetrieved.forEach((row) => {
