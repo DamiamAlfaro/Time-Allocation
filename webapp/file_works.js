@@ -204,7 +204,15 @@ function hoursStatistics() {
       const activitySummary = {};
 
       // Add each of the activities and their respective times.
-      data.forEach((row) => {
+      const userLoggedIn = localStorage.getItem('usernameThatLoggedIn');
+      const userDataRetrieved = data.filter(row => row.username === userLoggedIn);
+
+      const usernameStatisticsDisplay = document.getElementById('usernameStatisticsDisplay');
+      const newDivForStatistics = document.createElement('div');
+      newDivForStatistics.innerHTML = `<strong>${userLoggedIn}</strong> Activities:<br>`;
+      usernameStatisticsDisplay.appendChild(newDivForStatistics);
+
+      userDataRetrieved.forEach((row) => {
         
         if (!activitySummary[row.activity]) {
             activitySummary[row.activity] = {
