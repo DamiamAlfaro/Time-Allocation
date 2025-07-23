@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
 /* ANNOTATE THE TIME: We need to do three crucial things:
 1) Label the activity
 2) Start counting the activity's time
@@ -66,7 +65,9 @@ function deactivationFunction() {
         // We will use the function below for STORE TIME approach. Let's
         // keep everything organized. DB PW: timeallocationw1Ns!
 
-        storeElapsedTime(elapsedTime, theActivity);
+        const usernameCheckingIn = localStorage.getItem('usernameThatLoggedIn');
+
+        storeElapsedTime(usernameCheckingIn, elapsedTime, theActivity);
 
     }
 }
@@ -83,9 +84,10 @@ second thing will be to store every single iteration of the
 program separately. After that, we will do the statistics
 of the site. */
 
-function storeElapsedTime(time, activity) {
+function storeElapsedTime(username, time, activity) {
 
     const payload = {
+        username,
         time,
         activity,
         timestamp: new Date().toISOString(),

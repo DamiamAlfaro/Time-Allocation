@@ -9,7 +9,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { time, activity, timestamp } = req.body;
+  const { username, time, activity, timestamp } = req.body;
 
   if (typeof time !== 'number' || !activity || !timestamp) {
     return res.status(400).json({ error: 'Invalid data' });
@@ -25,8 +25,8 @@ export default async function handler(req, res) {
     });
 
     await connection.execute(
-      'INSERT INTO timeallocation (activity, elapsed_time, timestamp) VALUES (?, ?, ?)',
-      [activity, time, timestamp]
+      'INSERT INTO timeallocation (username, activity, elapsed_time, timestamp) VALUES (?, ?, ?, ?)',
+      [username, activity, time, timestamp]
     );
 
     await connection.end();
