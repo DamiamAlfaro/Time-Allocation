@@ -138,19 +138,35 @@ function showActivities() {
         return;
       }
 
+      const userLoggedIn = localStorage.getItem('usernameThatLoggedIn');
+      const userDataRetrieved = data.filter(row => row.username === userLoggedIn);
+      
+      const newDivForActivities = document.createElement('div');
+      newDivForActivities.textContent(`<strong>${userDataRetrieved}</strong> Activities:<br>`)
 
-      data.forEach((row) => {
-        const div = document.createElement('div');
-        div.className = 'activity-entry';
-        div.innerHTML = `
-          <p><strong>Username:</strong> ${row.username}</p>
-          <p><strong>Activity:</strong> ${row.activity}</p>
-          <p><strong>Elapsed Time:</strong> ${row.elapsed_time} seconds</p>
-          <p><strong>Timestamp:</strong> ${new Date(row.timestamp).toLocaleString()}</p>
-          <hr>
-        `;
-        container.appendChild(div);
+
+      let dataUsersRetrieval = [];
+      let dataActivitiesRetrieval = [];
+      let dataElapsedTimesRetrieval = [];
+
+      userDataRetrieved.forEach((row) => {
+          const userNameRetrieved = row.username;
+          const activityRetrieved = row.activity;
+          const elapsedTimeRetrieved = row.elapsed_time;
+
+          dataUsersRetrieval.push(userNameRetrieved);
+          dataActivitiesRetrieval.push(activityRetrieved);
+          dataElapsedTimesRetrieval.push(elapsedTimeRetrieved);
+
+          const div = document.createElement('div');
+          div.className = "activity-entry";
+          div.innerHTML = `
+            <p>Activity: ${row.activity}</p>
+            <p>Time Spent ${row.elapsed_time}</p>
+          `;
+          container.appendChild(div);
       });
+
     })
     .catch((err) => {
       console.error('Error:', err);
