@@ -142,7 +142,7 @@ function showActivities() {
       const userDataRetrieved = data.filter(row => row.username === userLoggedIn);
       
       const newDivForActivities = document.createElement('div');
-      newDivForActivities.textContent(`<strong>${userDataRetrieved}</strong> Activities:<br>`)
+      newDivForActivities.textContent(`<strong>${userDataRetrieved}</strong> Activities:<br>`);
 
 
       let dataUsersRetrieval = [];
