@@ -80,7 +80,7 @@ body {
 
 #webappTitle {
     margin-top: 12%;
-    font-size: 3em;
+    font-size: 4em;
     letter-spacing: 0.03em;
 }
 
@@ -89,7 +89,42 @@ body {
 }
 
 #signInForm.show-sign-in-form {
+    margin-top: 2%;
     display: block;
+}
+
+#signInForm.show-sign-in-form label {
+    font-size: 3em;
+    font-weight: 120;
+}
+
+#signInForm.show-sign-in-form input {
+    margin: 1%;
+    width: 250px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+#signInForm.show-sign-in-form button {
+  background-color: #FFB8E0;
+  border: solid #FFB8E0;
+  border-radius: 10px;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-size: 1em;
+
+}
+
+#signInForm.show-sign-in-form button:hover {
+    background-color: #FF99CC; /* Lighter shade on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 #signUpForm {
@@ -97,8 +132,50 @@ body {
 }
 
 #signUpForm.show-sign-up-form {
+    margin-top: 2%;
     display: block;
 }
+
+#signUpForm.show-sign-up-form label {
+    font-size: 3em;
+    font-weight: 120;
+}
+
+#signUpForm.show-sign-up-form input {
+    margin: 1%;
+    width: 250px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+#signUpForm.show-sign-up-form button {
+  background-color: #FFB8E0;
+  border: solid #FFB8E0;
+  border-radius: 10px;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-size: 1em;
+
+}
+
+#signUpForm.show-sign-up-form button:hover {
+    background-color: #FF99CC; /* Lighter shade on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+
+
+
+
+
+
 
 .circle-background {
     width: 200px;
@@ -123,3 +200,16 @@ body {
   opacity: 0.75;
 }
 
+
+.triangle-background {
+  width: 0;
+  height: 0;
+  border-left: 100px solid transparent; /* Adjust size as needed */
+  border-right: 100px solid transparent; /* Adjust size as needed */
+  border-bottom: 200px solid #FFB8E0; /* This creates the visible part of the triangle */
+  position: absolute;
+  top: 350px; /* Adjust positioning */
+  right: 100px; /* Adjust positioning */
+  z-index: -1; /* Place behind other content */
+  opacity: 0.75;
+}

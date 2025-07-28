@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <link rel="stylesheet" href="styles1.css">
+  <link rel="stylesheet" href="styles2.css">
 </head>
 
 <body>
@@ -11,7 +11,7 @@
     <nav>
      <ul class="navbar">
        <li><a class="navbarLinks" id="loginButton" href="#">Login</a></li>
-       <li><a class="navbarLinks" id="signInButton" href="#">Logout</a></li>
+       <li><a class="navbarLinks" id="signInButton" href="#">Sign Up</a></li>
      </ul>
     </nav>
 
@@ -22,13 +22,15 @@
     <div class="circle-background"></div>
     <!-- <button id="loginButton">Login</button> -->
     <div class="square-background"></div>
+    <div class="triangle-background"></div>
+
     <!-- USER SIGN IN -->
     <form id="signInForm">
       <label for="username">Username:</label><br>
       <input type="text" placeholder="You remember it, right?..." name="username" id="username"><br>
       <label for="password">Password:</label><br>
-      <input type="text" placeholder="I hope you do..." name="password" id="password">
-      <button type="submit">Login</button>
+      <input type="text" placeholder="I hope you do..." name="password" id="password"><br>
+      <button type="submit" role="button">Login</button>
     </form>
 
     <p id="usernameLoginFound"></p>
