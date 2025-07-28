@@ -1,44 +1,39 @@
 <!DOCTYPE HTML>
 <html>
-
+<head>
+    <title>Time Allocation - Stratifying Your Time</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
 <body>
 
-  <div>
-    <h1>Time Allocation - STRATIFYING YOUR TIME</h1>
-  </div>
+    <div class="container header">
+        <h1>Time Allocation - STRATIFYING YOUR TIME</h1>
+    </div>
 
+    <div class="container activity-section">
+        <h2>Activity in Question</h2>
+        <form class="activity-form">
+            <label for="activity">Activity</label>
+            <input type="text" id="activity" name="activity" placeholder="Enter your activity...">
+            <button type="submit" id="submit_button" class="btn primary">Start Task</button>
+        </form>
+        <button type="button" id="finish_button" class="btn secondary">Finish Task</button>
+    </div>
 
-  <div>
-    <h2>Activity in Question</h2>
-    <form>
-      <label for="activity">Activity</label>
-      <input type="text" id="activity" name="activity">
-      <button type="submit" id="submit_button">Submit</button>
-    </form>
+    <div id="welcomeUserMessage" class="message"></div>
+        
+    <div class="container activities-list">
+        <button type="button" id="show_activities_button" class="btn tertiary">Show all activities</button>
+        <div id="usernameActivitiesDisplay" class="message"></div>
+        <div id="activitiesContainer"></div>
+    </div>
 
-    <button type="button" id="finish_button">Finish Task</button>
-
-  </div>
-
-  <div id="welcomeUserMessage"></div>
+    <div class="container statistics-section">
+        <button type="button" id="show_statistics_button" class="btn tertiary">Statistics</button>
+        <div id="usernameStatisticsDisplay" class="message"></div>
+        <div id="statisticsContainer"></div>
+    </div>
     
-  <div>
-    <button type="button" id="show_activities_button">Show all activities</button>
-    <div id="usernameActivitiesDisplay"></div>
-    <div id="activitiesContainer"></div>
-  </div>
-
-   <div>
-    <button type="button" id="show_statistics_button">Statistics</button>
-    <div id="usernameStatisticsDisplay"></div>
-    <div id="statisticsContainer"></div>
-   </div>
-   
-
-  <script src="file_works.js"></script>
-
-
-
+    <script src="file_works.js"></script>
 </body>
-
 </html>
