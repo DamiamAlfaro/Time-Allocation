@@ -166,7 +166,7 @@ function showActivities() {
           div.innerHTML = `
             <p>Activity: ${row.activity}</p>
             <p>Time Spent: ${row.elapsed_time}</p>
-            <p>Time Stamp: ${Date(row.timestamp.replace(/-/g, "/")).toLocaleDateString()}</p>
+            <p>Time Stamp: ${Date(row.timestamp.replace(/-/g, "/")).toLocaleString()}</p>
           `;
           container.appendChild(div);
       });
