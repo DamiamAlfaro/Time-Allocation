@@ -213,3 +213,27 @@ body {
   z-index: -1; /* Place behind other content */
   opacity: 0.75;
 }
+
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #D1E9F6;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 1em;
+  color: #000;
+  z-index: 10;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.site-footer a {
+  color: #FFB8E0;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.site-footer a:hover {
+  color: #FF99CC;
+  text-decoration: underline;
+}
